@@ -1,0 +1,4 @@
+recipebook/recipebook/.env
+myenv/
+**/__pycache__
+*.sqlite3
