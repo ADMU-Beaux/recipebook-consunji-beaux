@@ -11,11 +11,11 @@
                 <h3>{{ recipe.name }}</h3>
                 <h5>Ingredients:</h5>
                 <ul>
-                    {% for ingredient in recipe.ingredients %}
-                    <li>{{ ingredient.name }} - {{ ingredient.quantity }}</li>
+                    {% for ingredient in recipe.ingredients.all %}
+                    <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>
                     {% endfor %}
                 </ul>
-                <a href="{{ recipe.link }}">Read more</a>
+                <a href="/recipe/{{ recipe.id }}">Read more</a>
             </li>
             {% endfor %}
         </ul>

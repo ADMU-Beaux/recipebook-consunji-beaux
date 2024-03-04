@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Recipe, Ingredient
+from .models import Recipe, RecipeIngredient, Ingredient
 
 # Recipe list view
 def recipe_list(request):
@@ -9,11 +9,10 @@ def recipe_list(request):
     }
     return render(request, 'recipe_list.html', ctx)
 
+# Recipe detail view
 def recipe_detail(request, id):
-    recipe_name = Recipe.object.get(id=id).name
-    ingredients = Ingredient.objects.filter(recipe__recipe__name=str(recipe_name))
+    recipe = Recipe.objects.get(id=id)
     ctx = {
-        "name": recipe_name,
-        "ingredients": ingredients
-    }    
-    return render(request, 'recipe.html', ctx)
+        "recipe": recipe
+    } 
+    return render(request, 'recipe_detail.html', ctx)
