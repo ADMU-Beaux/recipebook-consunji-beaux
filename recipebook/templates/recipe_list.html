@@ -15,7 +15,7 @@
                     <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>
                     {% endfor %}
                 </ul>
-                <a href="/recipe/{{ recipe.id }}">Read more</a>
+                <a href="{{ recipe.get_absolute_url }}">Read more</a>
             </li>
             {% endfor %}
         </ul>
