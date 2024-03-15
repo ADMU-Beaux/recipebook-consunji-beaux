@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+<h1>Recipe Book</h1>
+{% if logged_in %}
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Logout</button>
+    </form>
+{% else %}
+    <a href="{% url 'login' %}">Login</a>
+{% endif %}
+{% endblock %}
+
