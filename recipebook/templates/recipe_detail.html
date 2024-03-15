@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <title>Recipe Book</title>
-    </head>
-    <body>
-        <h1>Recipe Book</h1>
-        <h2>{{ recipe.name }}</h2>
-        <h5>Ingredients: </h5>
-        <ul>
-            {% for ingredient in recipe.ingredients.all %}
-            <li>{{ ingredient.ingredient.name }} - {{ingredient.quantity }}</li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2>{{ recipe.name }}</h2>
+<h5>Ingredients: </h5>
+<ul>
+    {% for ingredient in recipe.ingredients.all %}
+    <li>{{ ingredient.ingredient.name }} - {{ingredient.quantity }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
